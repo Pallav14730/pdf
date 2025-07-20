@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+/* Overall layout */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #282828;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width:760px) {
+  #sidebar {
+    display: none;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pdf-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  background: #282828;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Toolbar */
+#toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 15px;
+  background-color: #3c3c3c;
+  border-bottom: 1px solid #444;
+  font-size: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+#toolbar button {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#zoom-level,
+#page-info {
+  font-size: 14px;
+  color: white;
+}
+
+/* Main viewer layout */
+#ui {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+#sidebar {
+  width: 140px;
+  background: #2a2a2a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+    border-right: 1px solid #444;
+    overflow-y: auto;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .thumbnail-wrapper {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .thumbnail-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border 0.3s;
+  }
+  
+  .thumbnail-wrapper.active img {
+    border: 2px solid #00bfff;
+  }
+  
+  .thumbnail-wrapper span {
+    color: white;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  #main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+  justify-content: center;
+  align-items: flex-start;
+    background: #282828;
+  }
+  
+  /* PDF canvas */
+  #pdf-canvas {
+    background: white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #ui {
+      flex-direction: column;
+    }
+  
+    #sidebar {
+      flex-direction: row;
+      width: 100%;
+      height: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-right: none;
+      border-bottom: 1px solid #444;
+    }
+
+        .thumbnail-wrapper {
+          margin: 0 8px;
+        }
+
+        #main {
+          padding: 10px;
+  }
+#toolbar {
+  flex-wrap: wrap;
+  gap: 10px;
   }
 }

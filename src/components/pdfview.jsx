@@ -91,7 +91,7 @@ const PdfViewer = () => {
       </div>
 
       <div id="ui">
-        <div id="sidebar">
+        <div className="sidebar">
           {thumbnails.map((thumb, index) => (
             <div
               key={index}

@@ -12,8 +12,8 @@ body {
   cursor: pointer;
 }
 @media (max-width:760px) {
-  #sidebar {
-    display: none;
+  .sidebar {
+      display: none !important;
   }
 }
 
@@ -64,7 +64,7 @@ body {
   overflow: hidden;
 }
 
-#sidebar {
+.sidebar {
   width: 140px;
   background: #2a2a2a;
   color: white;
@@ -124,7 +124,7 @@ body {
       flex-direction: column;
     }
   
-    #sidebar {
+                .sidebar {
       flex-direction: row;
       width: 100%;
       height: auto;

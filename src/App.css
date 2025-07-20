@@ -16,6 +16,17 @@ body {
       display: none !important;
   }
 }
+@media (max-width:760px) {
+  #toolbar button {
+    font-size: 10px !important;
+  }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+  #toolbar button {
+    font-size: 16px;
+  }
+}
 
 .pdf-container {
   display: flex;

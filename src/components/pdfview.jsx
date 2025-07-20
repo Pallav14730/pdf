@@ -59,13 +59,35 @@ const PdfViewer = () => {
   return (
     <div className="pdf-container">
       <div id="toolbar">
-        <button onClick={() => setScale(scale - 0.2)}>➖</button>
+        <button
+          className="white-icon-btn"
+          onClick={() => setScale(scale - 0.2)}
+        >
+          -
+        </button>
         <span id="zoom-level">{Math.round(scale * 100)}%</span>
-        <button onClick={() => setScale(scale + 0.2)}>➕</button>
-        <button style={{ fontSize: '25px' }} onClick={() => setRotation((rotation + 90) % 360)}>⟳</button>
-        <button onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}>←</button>
-        <span id="page-info">Page {currentPage} of {totalPages}</span>
-        <button onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}>→</button>
+        <button onClick={() => setScale(scale + 0.2)}>+</button>
+        <button
+          style={{ fontSize: "25px" }}
+          onClick={() => setRotation((rotation + 90) % 360)}
+        >
+          ⟳
+        </button>
+        <button
+          onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+        >
+          ←
+        </button>
+        <span id="page-info">
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() =>
+            currentPage < totalPages && setCurrentPage(currentPage + 1)
+          }
+        >
+          →
+        </button>
       </div>
 
       <div id="ui">
@@ -73,7 +95,9 @@ const PdfViewer = () => {
           {thumbnails.map((thumb, index) => (
             <div
               key={index}
-              className={`thumbnail-wrapper ${currentPage === index + 1 ? 'active' : ''}`}
+              className={`thumbnail-wrapper ${
+                currentPage === index + 1 ? "active" : ""
+              }`}
               onClick={() => setCurrentPage(index + 1)}
             >
               <img src={thumb} alt={`Page ${index + 1}`} />
